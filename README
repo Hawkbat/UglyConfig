@@ -1,0 +1,6 @@
+UCL: Ugly Configuration Language
+
+Line-based; one key and data value per line, for Git-friendliness
+Indentation-based grouping; canonically one \t per indentation level but parsing will accept any whitespace as long as the relative character counts work out
+The rationale for indentation-based grouping is it keeps all grouping semantics local to the individual line rather than there being lines with only brackets everywhere
+A tab is considered equal to 8 spaces for the purposes of parsing mixed indentation
