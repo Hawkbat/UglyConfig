@@ -1,0 +1,105 @@
+UglyConfig
+
+Implementation ideas:
+	Detect recursive structures by recursing through each prop's type and breaking if a parent type is found
+	Use function parameter hinting in VS Code for showing field metadata and tuple subfields
+	Maybe represent conflicting field definitions as function overloads?
+
+//appSettings.ugl
+
+appSettings
+	appName MyNewApp
+	sessionTimeout 5
+	loggingPath c:/logs
+	useLogging true
+	deployPaths
+		- C:/inetpub/wwwroot
+		- D:/temp/pub
+	borderColor 255 255 255 255
+	position 32 32
+
+//appSettings.schema.ugl
+
+fields
+	- appSettings
+		type void
+		- appName
+			type string
+			required true
+		- sessionTimeout
+			type int
+		- loggingPath
+			type path
+		- useLogging
+			type bool
+		- deployPaths
+			type void
+			array
+				type path
+				min 1
+				max 10
+		- borderColor
+			type color
+		- position
+			type point
+types
+	- color
+		class tuple
+		- r
+			type int
+		- g
+			type int
+		- b
+			type int
+		- a
+			type int
+			optional true
+	- point
+		class tuple
+		- x
+			type int
+		- y
+			type int
+
+//ugl-schema.schema.ugl
+fields
+	- fields
+		array
+			type field
+	- types
+		array
+			type type
+types
+	- arrayField
+		class object
+		type void
+		- type
+			type string
+			required true
+		- min
+			type int
+		- max
+			type int
+	- field
+		class object
+		type string
+		array
+			type field
+			min 1
+		- type
+			type string
+			required true
+		- array
+			type arrayField
+		- required
+			type bool
+	- type
+		class object
+		type string
+		array
+			type field
+			min 1
+		- class
+			type string
+		- array
+			type arrayField
