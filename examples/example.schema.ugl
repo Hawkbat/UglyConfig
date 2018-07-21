@@ -1,0 +1,38 @@
+fields
+	- appSettings
+		- appName
+			type string
+			required true
+		- sessionTimeout
+			type int
+		- loggingPath
+			type string
+		- useLogging
+			type bool
+		- deployPaths
+			array
+				type string
+				min 1
+				max 10
+		- borderColor
+			type color
+		- position
+			type point
+types
+	- color
+		kind tuple
+		- r
+			type int
+		- g
+			type int
+		- b
+			type int
+		- a
+			type int
+			default 255
+	- point
+		kind tuple
+		- x
+			type int
+		- y
+			type int

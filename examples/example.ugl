@@ -1,0 +1,10 @@
+appSettings
+	appName MyNewApp
+	sessionTimeout 5
+	loggingPath c:/logs
+	useLogging true
+	deployPaths
+		- C:/inetpub/wwwroot
+		- D:/temp/pub
+	borderColor 255 255 255 255
+	position 32 32

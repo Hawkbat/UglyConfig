@@ -3,9 +3,10 @@
 		"strict": true,
 		"target": "es6",
 		"module": "commonjs",
+		"rootDir": "./src",
+		"outDir": "./out",
 		"lib": [
-			"dom",
-			"es6",
+			"es2017"
 		]
 	}
 }
