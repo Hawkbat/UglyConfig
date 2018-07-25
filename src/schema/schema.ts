@@ -77,8 +77,7 @@ export let META_SCHEMA: Schema = {
 			kind: SchemaTypeKind.Object,
 			type: 'string',
 			array: {
-				type: 'field',
-				min: 1
+				type: 'field'
 			},
 			fields: [
 				{

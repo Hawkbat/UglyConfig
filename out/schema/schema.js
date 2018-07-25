@@ -71,8 +71,7 @@ exports.META_SCHEMA = {
             kind: "object" /* Object */,
             type: 'string',
             array: {
-                type: 'field',
-                min: 1
+                type: 'field'
             },
             fields: [
                 {

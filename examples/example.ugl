@@ -2,7 +2,7 @@ appSettings
 	appName MyNewApp
 	sessionTimeout 5
 	loggingPath c:/logs
-	useLogging true
+	useLogging yes
 	deployPaths
 		- C:/inetpub/wwwroot
 		- D:/temp/pub
