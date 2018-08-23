@@ -5,6 +5,7 @@
 		"module": "commonjs",
 		"rootDir": "./src",
 		"outDir": "./out",
+		"declaration": true,
 		"lib": [
 			"es2017"
 		]

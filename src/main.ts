@@ -20,6 +20,7 @@ let fileCtx = ugl.applySchema(fileScope, schemaCtx.result!)
 
 let json = ugl.toJSON(fileCtx)
 
+console.log(print)
 console.log(JSON.stringify(json, undefined, 4))
 
 for (let error of schemaCtx.errors) console.log(error.msg + '\n    at ' + schemaPath + ':' + (error.node.line.lineNumber + 1) + '\n')
