@@ -181,6 +181,7 @@ function typeCheckNodeSelf(node: UglyNode, type: SchemaType | UglyType, ctx: Sch
 
 function typeCheckNode(node: UglyNode, type: SchemaType | SchemaField, ctx: SchemaContext) {
 	if ('kind' in type) typeCheckNodeSelf(node, type, ctx)
+	else node.schema = type
 	arrayTypeCheck(node, type, ctx)
 	fieldsTypeCheck(node, type, ctx)
 	invalidFieldsCheck(node, ctx)
@@ -213,7 +214,7 @@ function tupleTypeCheck(node: UglyNode, type: SchemaType, ctx: SchemaContext) {
 	if (type.type !== void_type.key) error('Schema tuple type cannot have a value type', node, ctx)
 
 	if (type.fields) {
-		let vals = node.line.value.split(' ')
+		let vals = node.line.value ? node.line.value.split(' ') : []
 
 		for (let i = 0; i < type.fields.length; i++) {
 			let field = type.fields[i]
