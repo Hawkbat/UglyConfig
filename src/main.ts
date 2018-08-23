@@ -15,8 +15,25 @@ let fileScope = ugl.parse(fileLines)
 
 let print = ugl.printNode(fileScope)
 
+let options: ugl.UglyOptions = {
+	types: [
+		{
+			key: 'hexColor',
+			validate: (str: string) => /^#[0-9A-F][0-9A-F][0-9A-F][0-9A-F][0-9A-F][0-9A-F](?:[0-9A-F][0-9A-F])?$/i.test(str),
+			parse: (str: string) => {
+				return {
+					r: parseInt(str.substr(1, 2), 16),
+					g: parseInt(str.substr(3, 2), 16),
+					b: parseInt(str.substr(5, 2), 16),
+					a: str.length >= 9 ? parseInt(str.substr(7, 2), 16) : 255
+				}
+			}
+		}
+	]
+}
+
 let schemaCtx = ugl.buildSchema(schemaScope)
-let fileCtx = ugl.applySchema(fileScope, schemaCtx.result!)
+let fileCtx = ugl.applySchema(fileScope, schemaCtx.result!, options)
 
 let json = ugl.toJSON(fileCtx)
 

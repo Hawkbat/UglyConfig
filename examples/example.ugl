@@ -6,5 +6,5 @@ appSettings
 	deployPaths
 		- C:/inetpub/wwwroot
 		- D:/temp/pub
-	borderColor 255 255 255 255
+	borderColor #ff7f3Cff
 	position 32 32

@@ -1,5 +1,5 @@
 import { SchemaField, SchemaType, SchemaTypeKind, SchemaContext, SchemaArrayOpts } from './index'
-import { UglyNode, UglyType } from '../index'
+import { UglyNode, UglyType, UglyOptions } from '../index'
 import { int, float, string, bool, void_type } from '../types/index'
 
 export interface Schema {
@@ -107,8 +107,11 @@ export let PRIMITIVE_TYPE_MAP: { [key: string]: UglyType } = {
 	void: void_type
 }
 
-export function applySchema(root: UglyNode, schema: Schema): SchemaContext {
+export function applySchema(root: UglyNode, schema: Schema, options?: UglyOptions): SchemaContext {
 	let ctx: SchemaContext = { root, schema, types: { ...PRIMITIVE_TYPE_MAP }, errors: [] }
+	if (options && options.types) {
+		for (let type of options.types) ctx.types[type.key] = type
+	}
 	for (let type of schema.types) ctx.types[type.key] = type
 
 	let rootType = getRootType(schema)

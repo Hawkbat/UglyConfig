@@ -15,7 +15,7 @@ fields
 				min 1
 				max 10
 		- borderColor
-			type color
+			type hexColor
 		- position
 			type point
 types

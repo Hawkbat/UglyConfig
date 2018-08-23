@@ -10,7 +10,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepublish": "tsc -p ./"
+    "prepare": "tsc -p ./"
   },
   "repository": {
     "type": "git",
