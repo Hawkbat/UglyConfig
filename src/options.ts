@@ -1,4 +1,4 @@
-import { UglyType } from '.'
+import { UglyType } from './index'
 
 export interface UglyOptions {
 	types?: UglyType[]

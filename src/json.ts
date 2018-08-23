@@ -86,7 +86,7 @@ function serializeType(obj: DataNode, type: SchemaType | UglyType, node: UglyNod
 			if (type.fields) {
 				if (!obj.fields) obj.fields = {}
 
-				let vals = node ? node.line.value.split(' ') : undefined
+				let vals = node && node.line.value ? node.line.value.split(' ') : undefined
 
 				for (let i = 0; i < type.fields.length; i++) {
 					let field = type.fields[i]
